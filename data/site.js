@@ -29,6 +29,16 @@ window.SITE = {
       url: "https://data-tides.com/2026/11/02/building-inclusive-fabric-apps/"
     },
     {
+      title: "Power BI Report CLI: What Changed for Accessibility?",
+      summary: "Microsoft merged four Power BI report skills into one. This article checks whether the new routing still applies accessibility guidance when you edit a report.",
+      url: "https://data-tides.com/2026/10/29/power-bi-report-cli-what-changed-for-accessibility/"
+    },
+    {
+      title: "Tab Order in Power BI: Sorted by Position, Not Logic",
+      summary: "The tab order button sorts visuals by their exact position, so small pixel differences can put elements in the wrong order and hurt accessibility.",
+      url: "https://data-tides.com/2026/10/21/tab-order-in-power-bi-sorted-by-position-not-logic/"
+    },
+    {
       title: "Power BI Font Scaling Guide for New Canvas Sizes",
       summary: "Why text looks smaller on larger Power BI canvases, and how to scale fonts in proportion to the canvas height so reports stay readable.",
       url: "https://data-tides.com/2026/04/27/power-bi-font-scaling-guide/"
