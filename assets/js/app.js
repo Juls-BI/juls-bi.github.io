@@ -114,14 +114,15 @@
       el("h3", { text: pr.title }),
       el("p", { text: pr.summary }),
       el("p", { class: "note", text: pr.note }),
-      tags,
-      extLink("btn btn-primary", pr.primary.label, pr.primary.url)
+      tags
     ]);
     if (pr.links && pr.links.length) {
       body.appendChild(el("ul", { class: "more-links" }, pr.links.map(function (l) {
         return el("li", {}, [extLink("", l.label, l.url)]);
       })));
     }
+    /* the main button is added last so it sits at the bottom of every card, aligned across cards */
+    body.appendChild(extLink("btn btn-primary", pr.primary.label, pr.primary.url));
     pgrid.appendChild(el("article", { class: "card product-card reveal" }, [img, body]));
   });
 
