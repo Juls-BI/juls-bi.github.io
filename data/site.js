@@ -78,7 +78,7 @@ window.SITE = {
     {
       title: "STEM Demystified",
       summary: "A publicly accessible platform that shares real stories of women in STEM, aimed at children. It includes a 3D interactive globe of role model locations, ambassador showcases, and directories for schools and non-profits, with children's privacy as a core design constraint.",
-      status: "Live",
+      status: "Live and free",
       note: "Available in English, Spanish, Brazilian Portuguese and German. Built as a Progressive Web App.",
       tools: ["Lovable", "Claude", "Row-Level Security", "WCAG 2.2 AA"],
       image: { src: "stem-demystified", alt: "The STEM Demystified welcome screen: the headline 'Real Women. Real Stories. A World of Possibilities.', a short description of the storytelling platform, an illustration of a lightbulb above an open book, and a Next button." },
