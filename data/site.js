@@ -20,6 +20,45 @@ window.SITE = {
     /* { title: "Post title", summary: "One line summary", url: "https://..." } */
   ],
 
+  /* AI, product design and real-world deployment. Shown in the "AI projects" section. */
+  products: [
+    {
+      title: "PBIX A11y",
+      summary: "A free, browser-based accessibility platform for Power BI reports and themes. It runs automated WCAG audits, generates alt text, simulates colour blindness and assesses cognitive load. Privacy-safe by design: nothing is uploaded or stored.",
+      status: "Live and free",
+      note: "Nominated for the Inclusive Awards 2026 (D&I Tech Initiative, UK).",
+      tools: ["Lovable", "Copilot", "Power BI (PBIX, PBIR, PBIP)", "Relative Luminance and APCA contrast"],
+      image: { src: "pbix-a11y", alt: "The PBIX A11y home page: a free, browser-based Power BI accessibility checker with buttons to run an audit or see what is checked, a privacy notice, and cards for featured articles and an Inclusion Awards 2026 nomination." },
+      primary: { label: "Open PBIX A11y", url: "https://pbiaudits.com/" },
+      links: [
+        { label: "Inclusive Awards 2026 nomination", url: "https://inclusiveawards.co.uk/nominate/44843/" },
+        { label: "Microsoft Fabric Community post", url: "https://community.fabric.microsoft.com/t5/Power-BI-Community-Blog/Turning-a-Real-World-Lesson-into-PBIX-A11y-for-Power-BI/bc-p/5176791#M7653" }
+      ]
+    },
+    {
+      title: "Galaxy Maths Quest",
+      summary: "A free, child-safe, multilingual maths platform for neurodivergent learners. A calm, galaxy-themed, distraction-free design with quests for times tables, number bonding, fractions and data challenges.",
+      status: "Live and free",
+      note: "Available in English, Portuguese, Spanish and German, with dark and light modes.",
+      tools: ["Lovable", "Copilot", "WCAG 2.1 AA"],
+      image: { src: "galaxy-maths-quest", alt: "The Galaxy Maths Quest home page: a dark, space-themed screen with the title, a short welcome, buttons to create an account, log in or play as a guest, and a glowing golden rocket illustration." },
+      primary: { label: "Visit Galaxy Maths Quest", url: "https://galaxyquestmath.com/" },
+      links: []
+    },
+    {
+      title: "STEM Demystified",
+      summary: "A publicly accessible platform that shares real stories of women in STEM, aimed at children. It includes a 3D interactive globe of role model locations, ambassador showcases, and directories for schools and non-profits, with children's privacy as a core design constraint.",
+      status: "Live",
+      note: "Available in English, Spanish, Brazilian Portuguese and German. Built as a Progressive Web App.",
+      tools: ["Lovable", "Claude", "Row-Level Security", "WCAG 2.2 AA"],
+      image: { src: "stem-demystified", alt: "The STEM Demystified welcome screen: the headline 'Real Women. Real Stories. A World of Possibilities.', a short description of the storytelling platform, an illustration of a lightbulb above an open book, and a Next button." },
+      primary: { label: "Visit STEM Demystified", url: "https://stemdemystified.com/" },
+      links: [
+        { label: "Technology Books for Children (featured charity)", url: "https://technologybooksforchildren.org/" }
+      ]
+    }
+  ],
+
   projects: [
     {
       id: "carbon-ledger",

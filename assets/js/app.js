@@ -96,6 +96,35 @@
     if (e.target === dialog) dialog.close(); /* click on the backdrop */
   });
 
+  /* ---------- AI and product projects ---------- */
+  var pgrid = document.getElementById("product-grid");
+  var NEWTAB = " (opens in a new tab)";
+  function extLink(cls, label, url) {
+    var a = el("a", { href: url, target: "_blank", rel: "noopener" });
+    if (cls) a.className = cls;
+    a.appendChild(document.createTextNode(label));
+    a.appendChild(el("span", { class: "visually-hidden", text: NEWTAB }));
+    return a;
+  }
+  (SITE.products || []).forEach(function (pr) {
+    var img = el("img", { src: "assets/img/products/" + pr.image.src + ".webp", alt: pr.image.alt, width: "1000", height: "625", loading: "lazy" });
+    var tags = el("ul", { class: "tags", "aria-label": "Tools" }, pr.tools.map(function (t) { return el("li", { text: t }); }));
+    var body = el("div", { class: "project-body" }, [
+      el("p", { class: "project-kind", text: pr.status }),
+      el("h3", { text: pr.title }),
+      el("p", { text: pr.summary }),
+      el("p", { class: "note", text: pr.note }),
+      tags,
+      extLink("btn btn-primary", pr.primary.label, pr.primary.url)
+    ]);
+    if (pr.links && pr.links.length) {
+      body.appendChild(el("ul", { class: "more-links" }, pr.links.map(function (l) {
+        return el("li", {}, [extLink("", l.label, l.url)]);
+      })));
+    }
+    pgrid.appendChild(el("article", { class: "card product-card reveal" }, [img, body]));
+  });
+
   /* ---------- LinkedIn (only if a URL is set) ---------- */
   if (SITE.links.linkedin) {
     var li = document.getElementById("linkedin-link");
