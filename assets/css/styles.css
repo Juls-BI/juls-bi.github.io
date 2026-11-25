@@ -33,6 +33,7 @@
   --peach: #f9dcc4;
   --line: #d9ccb0;
   --radius: 18px;
+  --radius-media: 5px;
   --shadow: 0 1px 2px rgba(34, 26, 51, 0.08), 0 8px 24px rgba(34, 26, 51, 0.08);
   --nav-h: 4.5rem;
   --font-head: "Playfair Display", Georgia, "Times New Roman", serif;
@@ -126,6 +127,7 @@ section { padding: clamp(3rem, 7vw, 5.5rem) 0; position: relative; }
 .alt { background: var(--cream-deep); }
 .eyebrow { font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple-soft); margin: 0 0 0.75rem; }
 .lead { font-size: 1.3rem; color: var(--purple); }
+.bio p { max-width: 75ch; }
 .wave { display: block; width: 100%; height: 56px; position: absolute; left: 0; top: -55px; }
 .wave path { fill: var(--cream-deep); }
 .wave.to-cream path { fill: var(--cream); }
@@ -164,7 +166,7 @@ section { padding: clamp(3rem, 7vw, 5.5rem) 0; position: relative; }
 .steps h3 { font-size: 1.2rem; margin: 0; }
 
 /* Projects */
-.project-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; position: relative; }
+.project-card { border-radius: var(--radius-media); padding: 0; overflow: hidden; display: flex; flex-direction: column; position: relative; }
 .project-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: top; border-bottom: 1px solid #efe4c9; background: var(--cream-deep); }
 .project-body { padding: 1.4rem 1.6rem 1.6rem; display: flex; flex-direction: column; flex: 1; }
 .project-kind { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--purple-soft); margin: 0 0 0.4rem; }
@@ -174,7 +176,7 @@ section { padding: clamp(3rem, 7vw, 5.5rem) 0; position: relative; }
 .project-card .btn::after { content: ""; position: absolute; inset: 0; } /* whole card clickable, single tab stop */
 .project-card:hover { transform: translateY(-3px); }
 .project-card { transition: transform 0.2s ease; }
-.project-card:focus-within { outline: 3px solid var(--purple); outline-offset: 3px; box-shadow: 0 0 0 3px var(--yellow); }
+.project-card:focus-within { border-radius: var(--radius-media); outline: 3px solid var(--purple); outline-offset: 3px; box-shadow: 0 0 0 3px var(--yellow); }
 .project-card .btn:focus-visible { outline: none; box-shadow: none; }
 
 /* Dialog */
@@ -189,7 +191,7 @@ dialog.project-dialog::backdrop { background: rgba(34, 26, 51, 0.65); }
 .dialog-close:hover { background: var(--yellow); }
 .dialog-body { padding: 1rem 1.5rem 1.75rem; }
 .gallery { margin: 0 0 1.5rem; }
-.gallery-frame { background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.gallery-frame { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-media); overflow: hidden; }
 .gallery-frame img { width: 100%; height: auto; }
 .gallery-caption { margin-top: 1.25rem; }
 .gallery-controls { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 0.75rem; }
