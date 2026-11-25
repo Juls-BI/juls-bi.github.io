@@ -238,7 +238,7 @@ dialog.project-dialog::backdrop { background: rgba(34, 26, 51, 0.65); }
 .product-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; border-radius: var(--radius-media); }
 .product-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: left top; border-bottom: 1px solid #efe4c9; background: var(--cream-deep); }
 .product-card .project-body .note { font-size: 1rem; color: var(--purple-soft); }
-.product-card .btn { align-self: flex-start; margin-top: auto; }
+.product-card .btn { align-self: center; width: min(100%, 18rem); margin-top: auto; text-align: center; }
 .more-links { list-style: none; padding: 0; margin: 0 0 1.25rem; display: grid; gap: 0.25rem; font-size: 1rem; }
 .more-links a { display: inline-block; padding: 0.4rem 0; min-height: 44px; }
-.product-card .tags { margin-bottom: 1.25rem; }
+.product-card .note { margin-bottom: 1.25rem; }

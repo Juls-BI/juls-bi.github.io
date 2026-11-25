@@ -108,13 +108,11 @@
   }
   (SITE.products || []).forEach(function (pr) {
     var img = el("img", { src: "assets/img/products/" + pr.image.src + ".webp", alt: pr.image.alt, width: "1000", height: "625", loading: "lazy" });
-    var tags = el("ul", { class: "tags", "aria-label": "Tools" }, pr.tools.map(function (t) { return el("li", { text: t }); }));
     var body = el("div", { class: "project-body" }, [
       el("p", { class: "project-kind", text: pr.status }),
       el("h3", { text: pr.title }),
       el("p", { text: pr.summary }),
-      el("p", { class: "note", text: pr.note }),
-      tags
+      el("p", { class: "note", text: pr.note })
     ]);
     if (pr.links && pr.links.length) {
       body.appendChild(el("ul", { class: "more-links" }, pr.links.map(function (l) {
