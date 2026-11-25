@@ -20,3 +20,26 @@
     }
   });
 })();
+
+/* Always open at the top, and keep the address bar free of #section links.
+   In-page links still scroll to their section and move keyboard focus there. */
+(function () {
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  if (location.hash) {
+    history.replaceState(null, "", location.pathname + location.search);
+  }
+  window.scrollTo(0, 0);
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a || a.classList.contains("skip-link")) return;
+    var id = a.getAttribute("href").slice(1);
+    var target = id && document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
+  });
+})();
