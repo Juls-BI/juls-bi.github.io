@@ -8,6 +8,7 @@ window.SITE = {
     github: "https://github.com/Juls-BI",
     githubUser: "Juls-BI",
     blog: "https://data-tides.com",
+    articles: "https://data-tides.com/blog/",
     email: "juliana@data-tides.com",
     linkedin: "https://www.linkedin.com/in/juliana-smith-citp/"
   },
@@ -17,7 +18,26 @@ window.SITE = {
 
   /* Optional curated posts. Leave empty to hide the section. */
   featuredPosts: [
-    /* { title: "Post title", summary: "One line summary", url: "https://..." } */
+    {
+      title: "AI Builds It, You Own It: A Model for Report Design in the Age of AI",
+      summary: "AI can speed up report design, but you stay responsible for its decisions. This article introduces the DEPTH model for reviewing them.",
+      url: "https://data-tides.com/2026/11/23/a-model-for-report-design-in-the-age-of-ai/"
+    },
+    {
+      title: "Building Inclusive Fabric Apps: Who\u2019s Responsible?",
+      summary: "Accessibility responsibility is moving from platforms to the people and AI agents who build Fabric Apps. It includes an Agent Skill that applies WCAG rules.",
+      url: "https://data-tides.com/2026/11/02/building-inclusive-fabric-apps/"
+    },
+    {
+      title: "Power BI Font Scaling Guide for New Canvas Sizes",
+      summary: "Why text looks smaller on larger Power BI canvases, and how to scale fonts in proportion to the canvas height so reports stay readable.",
+      url: "https://data-tides.com/2026/04/27/power-bi-font-scaling-guide/"
+    },
+    {
+      title: "Power BI & European Accessibility Act Part 1: Implementing Alternative Text",
+      summary: "How to write dynamic, insight-driven alt text in Power BI with DAX, and test it with a screen reader.",
+      url: "https://data-tides.com/2026/04/16/power-bi-european-accessibility-act-part-1-implementing-alternative-text/"
+    }
   ],
 
   /* AI, product design and real-world deployment. Shown in the "AI projects" section. */
