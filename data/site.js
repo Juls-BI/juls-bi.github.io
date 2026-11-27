@@ -139,18 +139,36 @@ window.SITE = {
       ]
     },
     {
-      id: "six-sigma-process-capability",
-      title: "Six Sigma Process Capability",
-      kind: "UK National Grid frequency dashboard",
-      summary: "Process capability on UK grid frequency, using DAX functions.",
-      tools: ["Power BI", "DAX UDFs", "Six Sigma", "NESO API"],
+      id: "european-coffee-roastery",
+      title: "European Coffee Roastery Performance",
+      kind: "Sales, delivery and finance timing report",
+      summary: "How a specialty coffee roaster is doing this month, and where to look first.",
+      tools: ["Power BI", "DAX", "Deneb", "PBIP / TMDL", "Accessible design"],
       description: [
-        "A Power BI dashboard applying a reusable Six Sigma process control library, built as DAX user-defined functions, to UK electricity grid frequency data from NESO.",
-        "The functions (DPMO, Sigma Level, Cp/Cpk, Pp/Ppk, control limits, Nelson Rules) are model-agnostic, and the report pulls the current month's readings dynamically via NESO's CKAN API.",
-        "Cp/Cpk and Pp/Ppk diverge sharply in the results: short-term sigma understates true variation compared to the long-term, population-based measure, since consecutive one-second readings are highly autocorrelated."
+        "A Power BI report on sales, delivery and finance timing for a specialty coffee roaster shipping from eight European warehouses.",
+        "The question I designed around was: \"How is the business doing this month, and where should I look first?\""
+      ],
+      highlights: [
+        { title: "The thought process", items: [
+          { label: "Answer first, explore second", text: "Summary is the main view. It leads with a plain-English headline, then KPI cards with month-over-month change, a rolling 12-month trend and the top warehouses. Detail is one click away on its own tab, so the first screen stays calm." },
+          { label: "Make change visible", text: "A single number says little, so each KPI card shows how it moved against the previous month. Flipping a card shows the 12-month average and the shape of the trend behind it." },
+          { label: "Show where, not just how much", text: "Sales and delivery are tied to place, so the Warehouse Map shows both at once. Bubble size is sales and colour is on-time delivery, and you can play through the months to see the pattern develop." },
+          { label: "Explain the gap between sales and finance", text: "The Details page asks where orders get stuck before they reach the ledger, with the slowest orders listed first." },
+          { label: "Say what matters in words", text: "Headlines, chart subtitles and summaries are written as measures, so they update with every filter and never go stale." },
+          { label: "Colour that works for everyone", text: "Status uses navy, blue and orange rather than red and green, and body text never drops below 20pt on the 1920x1200 canvas." }
+        ] },
+        { title: "Technical showcase", items: [
+          { label: "Deneb (Vega) visuals", text: "Flip-card KPIs that switch between a headline view and a trend view on click, a rolling 12-month chart with a last-year comparison and a margin strip, and an animated dotted map of Europe with play, pause and step controls." },
+          { label: "Data modelling", text: "A star schema with order and general ledger facts, plus a small disconnected offset table that drives every month-over-month and trend calculation, so the cards and the rolling chart share one definition of month." },
+          { label: "DAX", text: "Time-intelligence measures built around a focus month, finance-aware month logic for the delay analysis, and text measures that write the insights for each page." },
+          { label: "PBIP / TMDL", text: "The project is built and versioned as plain files, so measures, visuals and layout can be reviewed and changed like code." }
+        ] }
       ],
       images: [
-        { src: "six-sigma-1", alt: "National Grid Frequency Capability dashboard. Four KPI cards show a sigma level above 6, DPMO of 0, Cpk of 95.32 and Ppk of 2.22, each labelled World class or Capable. A control chart of grid frequency for 30 and 31 August 2026 shows readings around 50 hertz between upper and lower control limits, with a few points flagged by Nelson Rule 1." }
+        { src: "coffee-roastery-1", alt: "The Summary page of the European Coffee Roastery Performance report, with a dark teal header and a page navigation dropdown. A headline says sales in September 2026 reached 159.9 thousand pounds, 13.4 percent above August and 26.8 percent above September 2025, led by London, with gross margin of 42.9 percent, Madrid weakest on delivery at 83.9 percent on time, and 3.8 percent of sales not yet matched in the general ledger. Five flip cards show Total Sales 159.9 thousand pounds, Gross Profit 68.6 thousand, Sales vs GL Difference 6.0 thousand, GL Net Profit 57.9 thousand and On-Time 92.5 percent, each with a sparkline and change against August. A bar chart ranks the top five warehouses by sales: London 37.7 thousand, Rotterdam 22.4 thousand, Manchester 21.8 thousand, Paris 21.2 thousand and Hamburg 19.7 thousand. A rolling 12-month column chart shows sales against last year with month-over-month change labels, and a gross margin line below it reaching 42.9 percent in September." },
+        { src: "coffee-roastery-2", alt: "The Summary page with four KPI cards flipped to their trend view, each showing a 12-month average and 12 small bars from October 2025 to September 2026: Total Sales average 136.0 thousand pounds, Gross Profit 55.1 thousand, Sales vs GL Difference 5.1 thousand and GL Net Profit 45.0 thousand. The On-Time card is still on its headline view at 92.5 percent. In place of the rolling chart are a bar chart of year-to-date order-to-finance delay by bucket (no transaction 16, 1 to 7 days 289, 8 to 14 days 106, 15 to 30 days 44, over 30 days 11) and a heat table of the top five delayed products by warehouse, with Rotterdam and Madrid showing the highest values." },
+        { src: "coffee-roastery-3", alt: "The Warehouse Map View page for October 2026. A headline says 2026 so far, January to October, sales reached 1.34 million pounds, 41.6 percent above the same period in 2025, with London leading on 324.9 thousand pounds and 90.0 percent of orders on time across 8 warehouses. A dotted map of Europe shows a bubble for each warehouse, sized by sales and coloured by on-time delivery, with a legend for 90 percent or more, 85 to 90 percent and below 85 percent, plus previous, play and next buttons and a month timeline. Beside it, a bar chart lists sales and on-time rate for each warehouse, from London at 41.8 thousand pounds and 87 percent to Madrid at 10.8 thousand and 83 percent, above a small area chart of total monthly sales." },
+        { src: "coffee-roastery-4", alt: "The Order-to-Finance Timing and Delays page. Seven filters sit across the top: timing bucket, order date, customer type, warehouse, product, year and month. Five flip cards show Total Orders 466, Average Order Delay 8.9 days, Slow Orders over 7 days 161, Orders with Date Errors 3 and Orders Pending Finance 16, each with a sparkline and change against August. A line chart shows average days from order to finance by month from January to October 2026, peaking at 9.8 in August and falling to 8.7 in October. A bar chart compares on-time and late orders by warehouse, with London highest on 103 on time and 5 late." }
       ]
     },
     {

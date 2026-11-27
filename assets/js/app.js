@@ -15,7 +15,7 @@
     return node;
   }
   var IMG = "assets/img/projects/";
-  var ASSET_V = "4"; /* bump when an image file is replaced, so browsers fetch the new one */
+  var ASSET_V = "5"; /* bump when an image file is replaced, so browsers fetch the new one */
 
   /* ---------- Projects ---------- */
   var grid = document.getElementById("project-grid");
@@ -82,10 +82,12 @@
 
     p.description.forEach(function (para) { dialogBody.appendChild(el("p", { text: para })); });
     if (p.highlights) {
-      dialogBody.appendChild(el("h3", { text: p.highlights.title }));
-      dialogBody.appendChild(el("ul", { class: "highlights" }, p.highlights.items.map(function (it) {
-        return el("li", {}, [el("strong", { text: it.label + ": " }), el("span", { text: it.text })]);
-      })));
+      (Array.isArray(p.highlights) ? p.highlights : [p.highlights]).forEach(function (group) {
+        dialogBody.appendChild(el("h3", { text: group.title }));
+        dialogBody.appendChild(el("ul", { class: "highlights" }, group.items.map(function (it) {
+          return el("li", {}, [el("strong", { text: it.label + ": " }), el("span", { text: it.text })]);
+        })));
+      });
     }
     dialogBody.appendChild(el("ul", { class: "tags", "aria-label": "Tools" }, p.tools.map(function (t) { return el("li", { text: t }); })));
     show(0);
