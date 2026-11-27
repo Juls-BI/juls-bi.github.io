@@ -15,6 +15,7 @@
     return node;
   }
   var IMG = "assets/img/projects/";
+  var ASSET_V = "3"; /* bump when an image file is replaced, so browsers fetch the new one */
 
   /* ---------- Projects ---------- */
   var grid = document.getElementById("project-grid");
@@ -28,7 +29,7 @@
     var btn = el("button", { class: "btn btn-primary", type: "button", "data-project": p.id });
     btn.appendChild(document.createTextNode("View project"));
     btn.appendChild(el("span", { class: "visually-hidden", text: ": " + p.title }));
-    var thumb = el("img", { src: IMG + p.images[0].src + "-thumb.webp", alt: "", width: "640", height: "360", loading: "lazy" });
+    var thumb = el("img", { src: IMG + p.images[0].src + "-thumb.webp?v=" + ASSET_V, alt: "", width: "640", height: "360", loading: "lazy" });
     var body = el("div", { class: "project-body" }, [
       el("p", { class: "project-kind", text: p.kind }),
       el("h3", { text: p.title }),
@@ -64,7 +65,7 @@
     function show(i) {
       index = (i + n) % n;
       var im = p.images[index];
-      img.src = IMG + im.src + ".webp";
+      img.src = IMG + im.src + ".webp?v=" + ASSET_V;
       img.alt = p.title + ", screenshot " + (index + 1) + " of " + n;
       caption.textContent = im.alt;
       count.textContent = "Screenshot " + (index + 1) + " of " + n;
