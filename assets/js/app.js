@@ -80,6 +80,12 @@
     dialogBody.appendChild(gallery);
 
     p.description.forEach(function (para) { dialogBody.appendChild(el("p", { text: para })); });
+    if (p.highlights) {
+      dialogBody.appendChild(el("h3", { text: p.highlights.title }));
+      dialogBody.appendChild(el("ul", { class: "highlights" }, p.highlights.items.map(function (it) {
+        return el("li", {}, [el("strong", { text: it.label + ": " }), el("span", { text: it.text })]);
+      })));
+    }
     dialogBody.appendChild(el("ul", { class: "tags", "aria-label": "Tools" }, p.tools.map(function (t) { return el("li", { text: t }); })));
     show(0);
     dialog.showModal();
