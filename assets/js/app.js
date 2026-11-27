@@ -15,7 +15,7 @@
     return node;
   }
   var IMG = "assets/img/projects/";
-  var ASSET_V = "3"; /* bump when an image file is replaced, so browsers fetch the new one */
+  var ASSET_V = "4"; /* bump when an image file is replaced, so browsers fetch the new one */
 
   /* ---------- Projects ---------- */
   var grid = document.getElementById("project-grid");
